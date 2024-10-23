@@ -7,7 +7,6 @@ import { confirmPasswordRules, handleError, passwordRules } from "../../utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 interface UpdatePasswordForm extends UpdatePassword {
@@ -49,8 +48,8 @@ const ChangePassword = () => {
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <Label htmlFor="current_password">Current Password</Label>
             <Input
+              label="Current Password"
               id="current_password"
               {...register("current_password", {
                 required: "Current password is required",
@@ -62,8 +61,8 @@ const ChangePassword = () => {
             )}
           </div>
           <div>
-            <Label htmlFor="new_password">New Password</Label>
             <Input
+              label="New Password"
               id="new_password"
               {...register("new_password", passwordRules())}
               type="password"
@@ -73,8 +72,8 @@ const ChangePassword = () => {
             )}
           </div>
           <div>
-            <Label htmlFor="confirm_password">Confirm Password</Label>
             <Input
+              label="Confirm Password"
               id="confirm_password"
               {...register("confirm_password", confirmPasswordRules(getValues))}
               type="password"
