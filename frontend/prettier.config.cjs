@@ -1,7 +1,7 @@
 /** @type {import("prettier").Config} */
 const config = {
   plugins: [require.resolve("prettier-plugin-tailwindcss")],
-  printWidth: 100,
+  printWidth: 80,
   tabWidth: 2,
   trailingComma: "all",
 };

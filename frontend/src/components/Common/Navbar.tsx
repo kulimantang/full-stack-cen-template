@@ -43,7 +43,7 @@ export function Navbar() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <Link to="/" search={{ page: 1 }} onClick={handleLinkClick}>
+          <Link to="/" onClick={handleLinkClick}>
             <Logo className="!text-base" />
             <span className="sr-only">IBM Client Engineering</span>
           </Link>
@@ -52,7 +52,7 @@ export function Navbar() {
               <Link
                 key={item.title}
                 to={item.path}
-                search={item.search || { page: 1 }}
+                search={item.search}
                 className="text-foreground flex w-full items-center py-2 text-lg font-semibold"
                 onClick={handleLinkClick}
               >
@@ -76,7 +76,7 @@ export function Navbar() {
         </SheetContent>
       </Sheet>
       <div className="relative flex h-full w-full items-center border-b px-6">
-        <Link to="/" search={{ page: 1 }} className="mr-6 hidden sm:flex">
+        <Link to="/" className="mr-6 hidden sm:flex">
           <Logo className="!text-base" logoSize="sm" />
           <span className="sr-only">Acme Inc</span>
         </Link>
@@ -86,7 +86,7 @@ export function Navbar() {
               <li key={item.title}>
                 <Link
                   to={item.path}
-                  search={item.search || { page: 1 }}
+                  search={item.search}
                   className="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 text-primary group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                 >
                   {item.title}
