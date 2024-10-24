@@ -1,5 +1,5 @@
 # Stage 0, "build-stage", based on Node.js, to build and compile the frontend
-FROM node:20 AS build-stage
+FROM node:20 AS base
 
 WORKDIR /app
 
@@ -10,6 +10,9 @@ RUN npm install
 COPY ./ /app/
 
 ARG VITE_API_URL=${VITE_API_URL}
+
+
+FROM base as build-stage
 
 RUN npm run build
 

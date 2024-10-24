@@ -95,10 +95,13 @@ services:
       args:
         - VITE_API_URL=http://localhost:8000
         - NODE_ENV=development
-      target: build-stage
+      target: base
     ports:
       - "5173:5173"
-    command: npm run dev -- --host 0.0.0.0
+    command: >
+      npm run dev
+      --
+      --host 0.0.0.0
     develop:
       watch:
         - path: ./frontend
@@ -109,8 +112,6 @@ services:
             - dist
         - path: ./frontend/package.json
           action: rebuild
-    environment:
-      - HOST=0.0.0.0
 
   mailcatcher:
     image: schickling/mailcatcher
